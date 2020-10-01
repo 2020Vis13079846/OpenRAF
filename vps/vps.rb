@@ -39,3 +39,6 @@ def start_vps()
         f.puts vps[6..-7]
     }
 end
+
+start_vps()
+puts 'VPS started with
