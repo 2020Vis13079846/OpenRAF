@@ -10,8 +10,8 @@
 #include <cstdlib>
 #include <cstring>
 
-#include "include/raflib.h"
-#include "include/libbackdoor.h"
+#include "include/raflib.hpp"
+#include "include/libbackdoor.hpp"
 
 int main(int argc, char *argv[]) {
     std::string object_path = "/usr/local/share/OpenRAF";
