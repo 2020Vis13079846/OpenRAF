@@ -41,4 +41,3 @@ def start_vps()
 end
 
 start_vps()
-puts 'VPS started with
