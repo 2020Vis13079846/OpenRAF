@@ -15,7 +15,7 @@ void generate_backdoor(std::string object_path, std::string backdoor, std::strin
         backdoor_string.append(object_path);
         backdoor_string.append("/ars/backdoor.pl ");
         backdoor_string.append(output);
-        std::system(backdoor_string);
+        std::system(backdoor_string.c_str());
         std::cout << "Backdoor saved to " << output << "." << std::endl;
     } else {
         std::cout << "Invalid backdoor: " << backdoor << "!" << std::endl;
