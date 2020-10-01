@@ -56,6 +56,7 @@ sub ars {
 	listen(THC, 3) || die "can't listen\n";
 	print STDOUT '
 Welcome to the OpenRAF ARS v1.0
+
 OpenRAF is a project designed to provide a secure attack on 
 the target through VPS with SSL certification and AES encryption. 
 OpenRAF ARS is a main part of the OpenRAF that intended to provide 
