@@ -14,52 +14,52 @@
 #include "include/libbackdoor.h"
 
 int main(int argc, char *argv[]) {
-    char object_path[] = "/usr/local/share/OpenRAF";
-    char version[] = "v0.0.1a";
+    std::string object_path = "/usr/local/share/OpenRAF";
+    std::string version = "v2.0";
     if (argc < 2) {
         help();
     } else {
         if (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0) {
             help();
         } else if (strcmp(argv[1], "--version") == 0 || strcmp(argv[1], "-v") == 0) {
-            printf("OpenRAF %s\n", version);
+            std::cout << "OpenRAF " << version << std::endl;
         } else if (strcmp(argv[1], "--attack") == 0 || strcmp(argv[1], "-a") == 0) {
             if (argc < 3) {
-                printf("Missing <attack> in %s!\n", argv[1]);
+                std::cout << "Missing <attack> in " << argv[1] << "!" << std::endl;
             } else {
                 if (strcmp(argv[2], "openraf_ars") == 0) {
                     if (argc == 4) {
                         if (strcmp(argv[3], "--ignore-vps") == 0) {
                             start_attack(object_path, argv[2], 1);
                         } else {
-                            printf("Invalid flag %s for option %s!\n", argv[3], argv[1]);
+                            std::cout << "Invalid flag " << argv[3] << " for option " << argv[1] << "!" << std::endl;
                         }
                     } else {
                         start_attack(object_path, argv[2], 0);
                     }
                 } else {
-                    printf("Invalid attack: %s!\n", argv[2]);
+                    std::cout << "Invalid attack: " << argv[2] << "!" << std::endl;
                 }
             }
         } else if (strcmp(argv[1], "--backdoor") == 0 || strcmp(argv[1], "-b") == 0) {
             if (argc < 3) {
-                printf("Missing <backdoor> in %s!\n", argv[1]);
+                std::cout << "Missing <backdoor> in " << argv[1] << "!" << std::endl;
             } else {
                 if (argc < 4) {
                     if (strcmp(argv[2], "openraf_ars") == 0) {
                         generate_backdoor(object_path, argv[2], "./backdoor.pl");
                     } else {
-                        printf("Invalid backdoor: %s!\n", argv[2]);
+                        std::cout << "Invalid backdoor: " << argv[2] << "!" << std::endl;
                     }
                 } else {
                     if (strcmp(argv[3], "-o") == 0 || strcmp(argv[3], "--output") == 0) {
                         if (strcmp(argv[2], "openraf_ars") == 0) {
                             generate_backdoor(object_path, argv[2], argv[4]);
                         } else {
-                            printf("Invalid backdoor: %s!\n", argv[2]);
+                            std::cout << "Invalid backdoor: " << argv[2] << "!" << std:endl;
                         }
                     } else {
-                        printf("Invalid flag %s for option %s!\n", argv[3], argv[1]);
+                        std::cout << "Invalid flag " << argv[3] << " for option " << argv[1] << "!" << std::endl;
                     }
                 }
             }
