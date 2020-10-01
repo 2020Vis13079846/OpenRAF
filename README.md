@@ -1,2 +1,10 @@
 # OpenRAF
-OpenRAF - Open Remote Administration Framework reloaded written in C++
+
+**OpenRAF - Open Remote Access Framework**
+
+```
+OpenRAF is a project designed to provide a secure attack on 
+the target through VPS with SSL certification and AES encryption.
+```
+
+[OpenRAF Manual](https://github.com/OpenRAF/OpenRAF/wiki)
