@@ -21,6 +21,7 @@ def start_vps()
     #
     ##################################
     system("ngrok tcp 8080 > /dev/null &")
+    sleep(5)
     begin
         response = HTTParty.get 'http://localhost:4040/api/tunnels'
         json = JSON.parse response.body
