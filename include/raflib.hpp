@@ -18,41 +18,36 @@ void start_attack(std::string object_path, std::string attack, int ignore_vps) {
             vps_string.append("ruby ");
             vps_string.append(object_path);
             vps_string.append("/vps/vps.rb");
-            std::system(vps_string);
+            std::system(vps_string.c_str());
         }
 
-        // ========================================= \\
-
-        snprintf(atk_string, sizeof(atk_string), "ruby %s/atk/atk.rb", object_path);
-        system(atk_string);
+        atk_string.append("ruby");
+        atk_string.append(object_path);
+        atk_string.append("/atk/atk.rb")
+        std::system(atk_string.c_str());
         
-        // ========================================= \\
-        
-        printf("Starting OpenRAF ARS ...\n");
-        snprintf(ars_string, sizeof(ars_string), "perl %s/ars/ars.pl", object_path);
-        system(ars_string);
-
-        // ========================================= \\
+        std::cout << "Starting OpenRAF ARS ..." << std::endl;
+        ars_string.append("perl ");
+        ars_string.append(object_path);
+        ars_string.append("/ars/ars.pl");
+        std::system(ars_string.c_str());
         
         if (ignore_vps == 0) {
-            snprintf(clean_string, sizeof(clean_string), "rm -rf %s/vps/*.txt", object_path);
-            system(clean_string);
-            system("killall ngrok >/dev/null");
-        }
-        
-        // ========================================= \\
-        
+            clean_string.append("rm -rf ");
+            clean_string.append(object_path);
+            clean_string.append("/vps/*.txt");
+            std::system(clean_string.c_str());
+            std::system("killall ngrok >/dev/null");
+        }   
     } else {
-        printf("Invalid attack: %s!\n", attack);
+        std::cout << "Invalid attack: " << attack << "!" << std::endl;
     }
 }
 
 void help() {
-    // Just print help
-    
-    printf("Usage: openraf [option] <arguments> <flags>\n");
-    printf("\n");
-    printf("Basic options:\n");
+    std::cout << "Usage: openraf [option] <arguments> <flags>" << std::endl;
+    std::cout << std::endl;
+    std::cout << "Basic options:" << std::endl;
     printf("  -h, --help     Show help and exit.\n");
     printf("  -v, --version  Show OpenRAF version.\n");
     printf("\n");
