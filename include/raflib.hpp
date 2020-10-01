@@ -21,7 +21,7 @@ void start_attack(std::string object_path, std::string attack, int ignore_vps) {
             std::system(vps_string.c_str());
         }
 
-        atk_string.append("ruby");
+        atk_string.append("ruby ");
         atk_string.append(object_path);
         atk_string.append("/atk/atk.rb");
         std::system(atk_string.c_str());
