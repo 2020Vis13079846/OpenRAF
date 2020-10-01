@@ -9,7 +9,7 @@
 openraf:
 	@echo "Building OpenRAF to .build/openraf"
 	@mkdir .build
-	@gcc openraf.c -o .build/openraf
+	@g++ openraf.cc -o .build/openraf
 
 clean:
 	@rm -rf .build
