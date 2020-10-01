@@ -23,7 +23,7 @@ void start_attack(std::string object_path, std::string attack, int ignore_vps) {
 
         atk_string.append("ruby");
         atk_string.append(object_path);
-        atk_string.append("/atk/atk.rb")
+        atk_string.append("/atk/atk.rb");
         std::system(atk_string.c_str());
         
         std::cout << "Starting OpenRAF ARS ..." << std::endl;
