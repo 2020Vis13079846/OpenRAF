@@ -56,6 +56,7 @@ int main(int argc, char *argv[]) {
                         std::cout << "Invalid backdoor: " << arg2 << "!" << std::endl;
                     }
                 } else {
+                    std::string arg2(argv[2]);
                     std::string arg3(argv[3]); 
                     if (arg3 == "--output" || arg3 == "-o") {
                         if (arg2 == "openraf_ars") {
@@ -66,7 +67,7 @@ int main(int argc, char *argv[]) {
                                 generate_backdoor(object_path, arg2, arg4);
                             }
                         } else {
-                            std::cout << "Invalid backdoor: " << arg2 << "!" << std:endl;
+                            std::cout << "Invalid backdoor: " << arg2 << "!" << std::endl;
                         }
                     } else {
                         std::cout << "Invalid flag " << arg3 << " for option " << arg1 << "!" << std::endl;
