@@ -6,10 +6,11 @@
 //  Copyright © 2020 Ivan Nikolsky. All rights reserved.
 //
 
-void generate_backdoor(string object_path, string backdoor, string output) {
+void generate_backdoor(std::string object_path, std::string backdoor, std::string output) {
     std::string backdoor_string;
+    
     if (backdoor == "openraf_ars") {
-        printf("Generating openraf_ars backdoor ...\n");
+        std::cout << "Generating openraf_ars backdoor ..." << std::endl;
         backdoor_string.append("cp ");
         backdoor_string.append(object_path);
         backdoor_string.append(" /ars/backdoor.pl ");
