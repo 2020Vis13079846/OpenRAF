@@ -6,7 +6,7 @@
 //  Copyright © 2020 Ivan Nikolsky. All rights reserved.
 //
 
-void start_attack(char object_path[], char attack[], uint32_t ignore_vps) {
+void start_attack(std::string object_path, std::string attack, int ignore_vps) {
     if (strcmp(attack, "openraf_ars") == 0) {
         char vps_string[100];
         char ars_string[100];
