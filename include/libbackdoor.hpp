@@ -13,7 +13,7 @@ void generate_backdoor(std::string object_path, std::string backdoor, std::strin
         std::cout << "Generating openraf_ars backdoor ..." << std::endl;
         backdoor_string.append("cp ");
         backdoor_string.append(object_path);
-        backdoor_string.append(" /ars/backdoor.pl ");
+        backdoor_string.append("/ars/backdoor.pl ");
         backdoor_string.append(output);
         std::system(backdoor_string);
         std::cout << "Backdoor saved to " << output << "." << std::endl;
