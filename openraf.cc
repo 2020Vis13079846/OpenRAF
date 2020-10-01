@@ -19,47 +19,57 @@ int main(int argc, char *argv[]) {
     if (argc < 2) {
         help();
     } else {
-        if (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0) {
+        std::string arg1(argv[1]);
+        if (arg1 == "--help" || arg1 == "-h") {
             help();
-        } else if (strcmp(argv[1], "--version") == 0 || strcmp(argv[1], "-v") == 0) {
+        } else if (arg1 == "--version" || arg1 == "-v") {
             std::cout << "OpenRAF " << version << std::endl;
-        } else if (strcmp(argv[1], "--attack") == 0 || strcmp(argv[1], "-a") == 0) {
+        } else if (arg1 == "--attack" || arg1 == "-a") {
             if (argc < 3) {
-                std::cout << "Missing <attack> in " << argv[1] << "!" << std::endl;
+                std::cout << "Missing <attack> in " << arg1 << "!" << std::endl;
             } else {
-                if (strcmp(argv[2], "openraf_ars") == 0) {
+                std::string arg2(argv[2]);
+                if (arg2 == "openraf_ars") {
                     if (argc == 4) {
-                        if (strcmp(argv[3], "--ignore-vps") == 0) {
-                            start_attack(object_path, argv[2], 1);
+                        std::string arg3(argv[3]);
+                        if (arg3 == "--ignore-vps") {
+                            start_attack(object_path, arg2, 1);
                         } else {
-                            std::cout << "Invalid flag " << argv[3] << " for option " << argv[1] << "!" << std::endl;
+                            std::cout << "Invalid flag " << arg3 << " for option " << arg1 << "!" << std::endl;
                         }
                     } else {
-                        start_attack(object_path, argv[2], 0);
+                        start_attack(object_path, arg2, 0);
                     }
                 } else {
-                    std::cout << "Invalid attack: " << argv[2] << "!" << std::endl;
+                    std::cout << "Invalid attack: " << arg2 << "!" << std::endl;
                 }
             }
-        } else if (strcmp(argv[1], "--backdoor") == 0 || strcmp(argv[1], "-b") == 0) {
+        } else if (arg1 == "--backdoor" || arg1 == "-b") {
             if (argc < 3) {
-                std::cout << "Missing <backdoor> in " << argv[1] << "!" << std::endl;
+                std::cout << "Missing <backdoor> in " << arg1 << "!" << std::endl;
             } else {
                 if (argc < 4) {
-                    if (strcmp(argv[2], "openraf_ars") == 0) {
-                        generate_backdoor(object_path, argv[2], "./backdoor.pl");
+                    std::string arg2(argv[2]);
+                    if (arg2 == "openraf_ars") {
+                        generate_backdoor(object_path, arg2, "./backdoor.pl");
                     } else {
-                        std::cout << "Invalid backdoor: " << argv[2] << "!" << std::endl;
+                        std::cout << "Invalid backdoor: " << arg2 << "!" << std::endl;
                     }
                 } else {
-                    if (strcmp(argv[3], "-o") == 0 || strcmp(argv[3], "--output") == 0) {
-                        if (strcmp(argv[2], "openraf_ars") == 0) {
-                            generate_backdoor(object_path, argv[2], argv[4]);
+                    std::string arg3(argv[3]); 
+                    if (arg3 == "--output" || arg3 == "-o") {
+                        if (arg2 == "openraf_ars") {
+                            if (argc < 5) {
+                                std::cout << "Missing <output_path> in " << arg3 << "!" << std::endl;
+                            } else {
+                                std::string arg4(argv[4]);
+                                generate_backdoor(object_path, arg2, arg4);
+                            }
                         } else {
-                            std::cout << "Invalid backdoor: " << argv[2] << "!" << std:endl;
+                            std::cout << "Invalid backdoor: " << arg2 << "!" << std:endl;
                         }
                     } else {
-                        std::cout << "Invalid flag " << argv[3] << " for option " << argv[1] << "!" << std::endl;
+                        std::cout << "Invalid flag " << arg3 << " for option " << arg1 << "!" << std::endl;
                     }
                 }
             }
