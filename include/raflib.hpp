@@ -1,5 +1,5 @@
 //
-//  raflib.h
+//  raflib.hpp
 //  OpenRAF
 //
 //  Created by Ivan Nikolsky on 2020.
@@ -7,18 +7,18 @@
 //
 
 void start_attack(std::string object_path, std::string attack, int ignore_vps) {
-    if (strcmp(attack, "openraf_ars") == 0) {
-        char vps_string[100];
-        char ars_string[100];
-        char clean_string[100];
-        char atk_string[100];
-
-        // ========================================= \\
+    if (attack == "openraf_ars") {
+        std::string vps_string;
+        std::string ars_string;
+        std::string clean_string;
+        std::string atk_string;
 
         if (ignore_vps == 0) {
-            printf("Starting VPS ...\n");
-            snprintf(vps_string, sizeof(vps_string), "ruby %s/vps/vps.rb", object_path);
-            system(vps_string);
+            std::cout << "Starting VPS ..." << std::endl;
+            vps_string.append("ruby ");
+            vps_string.append(object_path);
+            vps_string.append("/vps/vps.rb");
+            std::system(vps_string);
         }
 
         // ========================================= \\
