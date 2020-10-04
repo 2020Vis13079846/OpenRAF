@@ -6,10 +6,21 @@
 #  Copyright © 2020 Ivan Nikolsky. All rights reserved.
 #
 
+CXX        = g++
+CXXFLAGS   =
+LDFLAGS    =
+
+TARGET     = .build/openraf
+
+Q          = @
+MKDIR      = mkdir
+RM         = rm
+MSG        = echo
+
 openraf:
-	@echo "Building OpenRAF to .build/openraf"
-	@mkdir .build
-	@g++ openraf.cc -o .build/openraf
+	$(Q) $(MSG) "Building OpenRAF to .build/openraf"
+	$(Q) $(MKDIR) .build
+	$(Q) $(CXX) openraf.cc -o $(TARGET)
 
 clean:
-	@rm -rf .build
+	$(Q) $(RM) -rf .build
