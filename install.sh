@@ -10,7 +10,7 @@
 
 OBJ_PATH="/usr/local/share/OpenRAF"
 
-mkdir $OBJ_PATH
+mkdir -p $OBJ_PATH
 cp -r vps $OBJ_PATH
 cp -r ars $OBJ_PATH
 cp -r atk $OBJ_PATH
