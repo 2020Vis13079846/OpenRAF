@@ -17,6 +17,8 @@ MKDIR      = mkdir
 RM         = rm
 MSG        = echo
 
+all: openraf
+
 openraf:
 	$(Q) $(MSG) "Building OpenRAF to .build/openraf"
 	$(Q) $(MKDIR) .build
