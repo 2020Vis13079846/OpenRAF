@@ -21,7 +21,7 @@ all: openraf
 
 openraf:
 	$(Q) $(MSG) "Building OpenRAF to .build/openraf"
-	$(Q) $(MKDIR) .build
+	$(Q) $(MKDIR) -p .build
 	$(Q) $(CXX) openraf.cc -o $(TARGET) $(CXXFLAGS) $(LDFLAGS)
 
 clean:
