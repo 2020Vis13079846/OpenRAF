@@ -38,5 +38,9 @@ install:
     	$(Q) $(CP) .build/openraf /usr/local/bin
     	$(Q) $(CHMOD) +x /usr/local/bin/openraf
 
+uninstall:
+	$(Q) $(RM) -rf $(OBJ_PATH)
+	$(Q) $(RM) /usr/local/bin/openraf
+
 clean:
 	$(Q) $(RM) -rf .build
