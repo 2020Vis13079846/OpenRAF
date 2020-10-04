@@ -10,8 +10,8 @@
 #include <cstdlib>
 #include <cstring>
 
-#include "include/raflib.hpp"
-#include "include/libbackdoor.hpp"
+#include "raflib.hpp"
+#include "libbackdoor.hpp"
 
 int main(int argc, char *argv[]) {
     std::string object_path = "/usr/local/share/OpenRAF";
@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
                     }
                 } else {
                     std::string arg2(argv[2]);
-                    std::string arg3(argv[3]); 
+                    std::string arg3(argv[3]);
                     if (arg3 == "--output" || arg3 == "-o") {
                         if (arg2 == "openraf_ars") {
                             if (argc < 5) {
